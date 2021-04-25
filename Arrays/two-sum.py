@@ -11,7 +11,8 @@ from typing import List
 def two_sum(nums: List[int], target: int) -> List[int]:
     di = {}
     for i in range(len(nums)):
-        if target - nums[i] in di:
+        # using get as it o(1)
+        if di.get(target - nums[i]) is not None:
             return [di[target - nums[i]], i]
         else:
             di[nums[i]] = i
